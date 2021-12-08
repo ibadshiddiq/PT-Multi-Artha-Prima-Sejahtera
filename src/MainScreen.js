@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { ScrollView, TouchableOpacity } from "react-native";
 import { Box, FlatList, Text } from "native-base";
-// import SubScreen from "./SubScreen";
-// import Photos from "./Photos";
-// import { FontAwesome5 } from "@expo/vector-icons";
+import SubScreen from "./SubScreen";
+import Photos from "./Photos";
+import { FontAwesome5 } from "@expo/vector-icons";
 
 export default function Main() {
   const [dog, setDog] = useState([]);
-  // const [showModal, setShowModal] = useState(false);
-  // const [item, setItem] = useState("");
-  // const [showModalPhoto, setShowModalPhoto] = useState(false);
-  // const [itemPhoto, setItemPhoto] = useState("");
+  const [showModal, setShowModal] = useState(false);
+  const [item, setItem] = useState("");
+  const [showModalPhoto, setShowModalPhoto] = useState(false);
+  const [itemPhoto, setItemPhoto] = useState("");
   const [value, setValue] = useState("");
 
   useEffect(() => {
@@ -21,17 +21,17 @@ export default function Main() {
 
   const doggy = Object.keys(dog);
 
-  // const handleModal = (item) => {
-  //   setItem([]);
-  //   setShowModal(true);
-  //   setItem(item);
-  // };
+  const handleModal = (item) => {
+    setItem([]);
+    setShowModal(true);
+    setItem(item);
+  };
 
-  // const handleModalPhoto = (items) => {
-  //   setItemPhoto([]);
-  //   setShowModalPhoto(true);
-  //   setItemPhoto(items);
-  // };
+  const handleModalPhoto = (items) => {
+    setItemPhoto([]);
+    setShowModalPhoto(true);
+    setItemPhoto(items);
+  };
 
   return (
     <ScrollView>
@@ -77,26 +77,26 @@ export default function Main() {
                   {item.toUpperCase()}
                 </Text>
               </TouchableOpacity>
-              {/* <TouchableOpacity onPress={() => handleModalPhoto(item)}>
+              <TouchableOpacity onPress={() => handleModalPhoto(item)}>
                 <Text fontSize={12} fontWeight="bold" marginLeft={5}>
                   Picture :
                 </Text>
                 <FontAwesome5 name="dog" size={40} color="red" />
-              </TouchableOpacity> */}
+              </TouchableOpacity>
             </Box>
           )}
         />
       </Box>
-      {/* <SubScreen
+      <SubScreen
         showModal={showModal}
         onHide={() => setShowModal(false)}
         endPoint={item}
-      /> */}
-      {/* <Photos
+      />
+      <Photos
         showModalPhoto={showModalPhoto}
         onHidden={() => setShowModalPhoto(false)}
         endPointImage={itemPhoto}
-      /> */}
+      />
     </ScrollView>
   );
 }
